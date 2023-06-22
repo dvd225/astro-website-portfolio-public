@@ -1,0 +1,96 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import Hero from "../components/Hero.astro";
+import Grid from "../components/Grid.astro";
+import Pill from "../components/Pill.astro";
+
+const projects = (await getCollection("work")).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+// creo un array contenente tutti i tag dei file .md nella cartella work (mi riferisco a project delle righe sopra)
+const tags = [];
+
+projects.forEach(function (project) {
+	project.data.tags.forEach(function (tag) {
+		tags.push(tag);
+	});
+});
+
+// elimino i duplicati dall'array tags
+const tags_no_duplicate = [...new Set(tags)];
+---
+
+<BaseLayout
+	title="Progetti | Davide Morri"
+	description="Una collezione di tutti i progetti che ho realizzato."
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Progetti"
+				tagline="Qui puoi trovare tutti i progetti che ho realizzato."
+				align="start"
+			/>
+			<div class="tags mx-auto">
+				<button class="button_reset"
+					><Pill>Nessun Filtro</Pill></button
+				>
+				{
+					tags_no_duplicate.map((tag) => (
+						<button class="button">
+							<Pill>{tag}</Pill>
+						</button>
+					))
+				}
+			</div>
+			<Grid variant="offset">
+				{
+					projects.map((project) => (
+						<li>
+							<PortfolioPreview project={project} />
+						</li>
+					))
+				}
+			</Grid>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.tags {
+		display: block;
+		gap: 2rem;
+	}
+
+	.button {
+		padding: 5px;
+	}
+
+	.button_reset {
+		padding: 5px;
+	}
+
+	.pill:hover {
+		background-color: #fff;
+		color: #111;
+		border-radius: 999rem;
+	}
+
+	.post-expand {
+	}
+
+	.post-shrink {
+		display: none;
+	}
+
+
+</style>
+
+<script src="../components/filter_animation.js"></script>

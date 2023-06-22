@@ -1,0 +1,81 @@
+---
+import Icon from './Icon.astro';
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+	<div class="group">
+		<p>
+			Sito Web realizzato con <a href="https://astro.build/">Astro</a>
+			<!-- <Icon icon="astro-logo" size="5.8em"/> -->
+		</p>
+		<p>&copy; {currentYear} Davide Morri</p>
+		<!-- <br><p>
+			<a href="https://www.iubenda.com/privacy-policy/69632542" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+				<a href="https://www.iubenda.com/privacy-policy/69632542/cookie-policy" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+		
+		</p> -->
+	</div>
+	<p class="socials">
+		<a href="https://www.linkedin.com/in/davide-morri/" target="_blank"> LinkedIn</a>
+		<a href="mailto:davidemorri22@gmail.com"> Mail</a>
+		<a href="https://github.com/dvd225"> Github</a>
+		<a href="https://www.instagram.com/_unum_ex_pluribus_/" target="_blank"> Instagram</a>
+		<a href="https://t.me/davidemorri" target="_blank"> Telegram</a>
+	</p>
+</footer>
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		margin-top: auto;
+		padding: 3rem 2rem 3rem;
+		text-align: center;
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+	}
+
+	footer a {
+		color: var(--gray-400);
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	footer a:hover,
+	footer a:focus {
+		text-decoration-color: currentColor;
+	}
+
+	.group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.socials {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	@media (min-width: 50em) {
+		footer {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 2.5rem 5rem;
+		}
+
+		.group {
+			flex-direction: row;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		.socials {
+			justify-content: flex-end;
+		}
+	}
+</style>

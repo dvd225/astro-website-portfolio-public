@@ -1,0 +1,349 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "@astrojs/image/components";
+import fotocopertina from "../../public/assets/davide.jpg";
+import emojidev from "../../public/assets/pc-man.png";
+import emojicv from "../../public/assets/emoji-cv2.png";
+
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Component Imports
+import CallToAction from "../components/CallToAction.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+
+// Page section components
+import ContactCTA from "../components/ContactCTA.astro";
+import Skills from "../components/Skills.astro";
+
+// Content Fetching: List four most recent work projects
+const projects = (await getCollection("selected_work"))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 2);
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<BaseLayout
+	title="Davide Morri | Home"
+	description="Homepage del portfolio di Davide Morri"
+>
+	<div class="stack gap-20 lg:gap-48">
+		<div class="wrapper stack gap-8 lg:gap-20">
+			<header class="hero">
+				<Hero
+					tagline="Dai un'occhiata al mio sito per scoprire cosa faccio"
+					align="start"
+					emoji="1"
+				>
+					<br />
+					<div class="roles">
+						<Pill>
+							<Icon icon="terminal-window" size="1.33em" /> Web Developer
+						</Pill>
+						<Pill>
+							<Icon icon="graph-up" size="1.33em" /> Junior SEO Specialist
+						</Pill>
+						<Pill>
+							<Icon icon="camera" size="1.33em" /> Fotografo
+						</Pill>
+					</div>
+					<div class="roles">
+						<Pill>
+							<Icon icon="funnel" size="1.33em" /> Junior Launch Funnel
+							Specialist
+						</Pill>
+					</div>
+				</Hero>
+				<Image
+					fetchpriority="high"
+					src={fotocopertina}
+					alt="Foto di Davide Morri"
+					width={500}
+					quality={100}
+					format="webp"
+				/>
+			</header>
+
+			<!-- <Skills /> -->
+		</div>
+
+		<main class="wrapper stack gap-20 lg:gap-48">
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4 transizione">
+					<h2>
+						Progetti Selezionati <Image
+							src={emojidev}
+							class="emoji"
+							style="display: inline-block;position: relative; bottom: 11px; width: 60px;"
+							alt="Foto di Davide Morri"
+							quality={100}
+							format="webp"
+						/>
+					</h2>
+					<p>
+						In questa sezione puoi dare un'occhiata ad alcuni interessanti progetti che ho realizzato.
+					</p>
+				</header>
+
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							projects.map((project) => (
+								<li class="transizione">
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+
+				<div class="cta">
+					<CallToAction href="/work/">
+						Scopri altri progetti
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
+
+			<!-- <section class="section with-background bg-variant">
+				<header class="section-header stack gap-2 lg:gap-4 transizione">
+					<h3>Mentions</h3>
+					<p>
+						I have been fortunate enough to recieve praise for my
+						work in several publications. Take a look below to learn
+						more.
+					</p>
+				</header>
+
+				<div class="gallery">
+					<Grid variant="small">
+						{
+							[
+								"Medium",
+								"BuzzFeed",
+								"The Next Web",
+								"awwwards.",
+								"TechCrunch",
+							].map((brand) => (
+								<li class="mention-card transizione">
+									<p>{brand}</p>
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</section> -->
+			<section class="section with-background bg-variant">
+				<header class="section-header stack gap-2 lg:gap-4 transizione">
+					<h3>Curriculum <br><Image
+						src={emojicv}
+						class="emoji"
+						style="display: inline-block;position: relative; bottom: 11px; width: 60px;"
+						alt="Foto di Davide Morri"
+						quality={100}
+						format="webp"
+					/></h3>
+					<p>
+						Vuoi scoprire qualcosa in più sulla mia esperienza?
+					</p>
+					<div class="CTA">
+					<CallToAction href="assets/risorse/CV Davide Morri 2023.pdf" download="Davide Morri CV">
+						Scarica il mio CV <Icon icon="download" size="1.2em" />
+					</CallToAction>
+					</div>
+				</header>
+				</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.CTA{
+		color: white;
+	}
+	/* TRANSIZIONI ANIMATE */
+	.transizione {
+		opacity: 0;
+		filter: blur(5px);
+		transform: translateX(-100%);
+		transition: all 1.5s;
+	}
+	.show {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateX(0);
+	}
+
+	/* FINE TRANSIZIONI */
+
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.roles {
+		display: none;
+	}
+
+	.hero img {
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	@media (min-width: 50em) {
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem;
+			gap: 3.75rem;
+		}
+
+		.roles {
+			margin-top: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+		}
+
+		.hero img {
+			aspect-ratio: 3 / 4;
+			border-radius: 4.5rem;
+			object-fit: cover;
+		}
+	}
+
+	/* ====================================================== */
+
+	.section {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.with-background {
+		position: relative;
+	}
+
+	.with-background::before {
+		--hero-bg: var(--bg-image-subtle-2);
+
+		content: "";
+		position: absolute;
+		pointer-events: none;
+		left: 50%;
+		width: 100vw;
+		aspect-ratio: calc(2.25 / var(--bg-scale));
+		top: 0;
+		transform: translateY(-75%) translateX(-50%);
+		background: url("/assets/backgrounds/noise.png") top center/220px repeat,
+			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+			var(--gray-999);
+		background-blend-mode: overlay, normal, normal, normal;
+		mix-blend-mode: var(--bg-blend-mode);
+		z-index: -1;
+	}
+
+	.with-background.bg-variant::before {
+		--hero-bg: var(--bg-image-subtle-1);
+	}
+
+	.section-header {
+		justify-self: center;
+		text-align: center;
+		max-width: 50ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
+	}
+
+	.section-header h3 {
+		font-size: var(--text-2xl);
+	}
+
+	.section-header h2 {
+		font-size: var(--text-2xl);
+	}
+
+	@media (min-width: 50em) {
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: "header header header header" "gallery gallery gallery gallery";
+			gap: 5rem;
+		}
+
+		.section.with-cta {
+			grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
+		}
+
+		.section-header {
+			grid-area: header;
+			font-size: var(--text-lg);
+		}
+
+		.section-header h3 {
+			font-size: var(--text-4xl);
+		}
+
+		.with-cta .section-header {
+			justify-self: flex-start;
+			text-align: left;
+		}
+
+		.gallery {
+			grid-area: gallery;
+		}
+
+		.cta {
+			grid-area: cta;
+		}
+	}
+
+	/* ====================================================== */
+
+	.mention-card {
+		display: flex;
+		height: 7rem;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		color: var(--gray-300);
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+	.emoji {
+		display: inline-block;
+		position: relative;
+		bottom: 15px;
+		width: 60px;
+	}
+	@media (min-width: 50em) {
+		.mention-card {
+			border-radius: 1.5rem;
+			height: 9.5rem;
+		}
+		
+	}
+	@media only screen and (min-width: 768px) {
+		.emoji {
+		display: inline-block;
+		position: relative;
+		bottom: 10px;
+		width: 50px;
+	}
+}
+	
+	
+</style>
+
+<script src="../components/transition.js"></script>

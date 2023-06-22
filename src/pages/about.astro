@@ -1,0 +1,537 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+
+import Icon from "../components/Icon.astro";
+
+// import '../styles/bootstrap.css';
+---
+
+<BaseLayout
+	title="Carriera | Davide Morri"
+	description="Una descrizione della mia carriera di esperienza."
+>
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Carriera"
+				tagline="In questa pagina puoi scoprire quali sono stati i percorsi che ho intrapreso."
+			>
+				<!-- <img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Jeanine White at work with a colleague"
+				/> -->
+			</Hero>
+			<br />
+		</main>
+		<section>
+			<div
+				class="grid lg:grid-cols-3 gap-30 place-item-center container mx-auto px-20"
+			>
+				<span class="col-span-1">
+					<div class="stack gap-2 lg:gap-4 skills">
+						
+						<h2> <Icon
+							icon="briefcase"
+							color="var(--accent-regular)"
+							size="2.5rem"
+							style="display:inline-block; position: relative; bottom: 5px"
+							gradient
+						/> Esperienza</h2>
+						<p>
+							Ho finanziato i miei studi univeristari grazie a diverse esperienze di lavoro che mi hanno fornito molte conoscenze trasversali.
+						</p>
+					</div>
+
+					<div class="timeline">
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2023</span>
+							</div>
+							<div class="timeline-info">
+								<h3><br /></h3>
+								<p></p>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2022</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+
+								<h3>
+									<span>Tirocinio universitario</span><br />
+									<small>
+										<a
+											rel="nofollow"
+											href="https://www.bpm-power.com/it/"
+											target="_blank">BPM Power</a
+										>
+									</small>
+								</h3>
+								<div>
+									
+										
+									
+									<p>
+										Periodo di formazione come <b
+											>full-stack developer</b
+										>. <br />
+										<ul>
+											<li class="list-item">
+												• PHP ad oggetti
+											</li>
+											<li class="list-item">
+												• Javascript
+											</li>
+											<li class="list-item">• SQL</li>
+										</ul>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2022</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+								<h3>
+									<span>Cameriere di sala</span><br />
+									<small
+										><a
+											rel="nofollow"
+											href="https://www.instagram.com/santarcangelo_mare/?hl=it"
+											target="_blank"
+											>Santarcangelo Mare</a
+										></small
+									><br />
+									<small
+										><a
+											rel="nofollow"
+											href="https://www.instagram.com/da_oreste_santarcangelo/?hl=it"
+											target="_blank">Osteria da Oreste</a
+										></small
+									><br />
+									<small
+										><a
+											rel="nofollow"
+											href="https://www.instagram.com/maribisca/?hl=it"
+											target="_blank">Maribisca</a
+										></small
+									><br />
+								</h3>
+								<p>
+									Esperienze stagionali in diversi ristoranti
+									ed osterie.
+								</p>
+								<ul>
+									<li class="list-item">
+										• Direttore di sala
+									</li>
+									<li class="list-item">• Presa comande</li>
+									<li class="list-item">
+										• Riscossione conti
+									</li>
+									<li class="list-item">• Barback</li>
+								</ul>
+								<div style="margin-bottom: 300px;"></div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2018</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+							</div>
+						</div>
+					</div>
+				</span>
+				<span class="col-span-1">
+					<div class="stack gap-2 lg:gap-4 skills">
+						
+						<h2><Icon
+							icon="book"
+							color="var(--accent-regular)"
+							size="2.5rem"
+							style="display:inline-block; position: relative; bottom: 5px"
+							gradient
+						/> Formazione</h2>
+						<p>
+							Possiedo una laurea triennale e magistrale in Scienze delle Comunicazioni e mi sono specializzato in temi di Informatica e Marketing.
+						</p>
+					</div>
+
+					<div class="timeline">
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2023</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+								<h3>
+									<span>Laurea Magistrale</span><small
+										><a href="https://www.unito.it/ugov/degree/38081" target="_blank">Università degli studi di Torino</a></small
+									>
+								</h3>
+								<p>
+									Corso di studio LM-59 in Comunicazione, ICT
+									e Media.
+								</p>
+								<ul>
+									<li class="list-item">
+										• Tesi di laurea "<i
+											><b
+												>Search Engine Optimization:
+												dallo studio della pratica alla
+												realizzazione di un software di
+												analisi.</b
+											></i
+										>"
+									</li>
+									<li class="list-item">
+										• Voto di laurea: <b>110/110 e Lode</b>
+									</li>
+									<li class="list-item">
+										• <b>Rappresentante</b> degli studenti del
+										CDL
+									</li>
+									<li class="list-item">
+										• <b>Borsa di studio</b> per approfondimento
+										di tematiche di interesse per il <b
+											>Progetto di Eccellenza CPS
+										</b> a.a. 2021/2022
+									</li>
+								</ul>
+								<br /><br />
+								<h3>
+									<span>Corsi di formazione</span><small
+										><a
+											rel="nofollow"
+											href="https://learnn.com/"
+											target="_blank">Learnn</a
+										> | <a
+											href="https://learnn.com/profile/dvdmorri/"
+											target="_blank">Profilo Learnn</a
+										></small
+									>
+								</h3>
+								<ul>
+									<li class="list-item">
+										• <b
+											>SEO (<a
+												rel="nofollow"
+												href="/assets/certificato_learnn_SEO.png"
+												target="_blank">certificato</a
+											>)</b
+										>
+									</li>
+									<li class="list-item">
+										• <b>Lightroom e preset (<a
+											rel="nofollow"
+											href="/assets/certificato_learnn_lightroom.png"
+											target="_blank">certificato</a
+										>)</b>
+									</li>
+									<li class="list-item">
+										• <b>Funnel Marketing</b>
+									</li>
+								</ul>
+								<div style="margin-bottom: 300px;"></div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2020</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+								<h3>
+									<span>Laurea Triennale</span><small
+										><a href="https://www.uniurb.it/corsi/1755166/insegnamenti-e-programmi" target="_blank">Università degli studi di Urbino</a></small
+									>
+								</h3>
+								<p>
+									Corso di studio L-20 in Informazione, Media
+									e Pubblicità.
+								</p>
+								<ul>
+									<li class="list-item">
+										• Tesi di laurea "<i
+											><b
+												>Influenza sociale e Struttura
+												di rete. Un esperimento di
+												simulazione digitale.</b
+											></i
+										>"
+									</li>
+									<li class="list-item">
+										• Voto di laurea: <b>110/110 e lode</b>
+									</li>
+									<li class="list-item">
+										• <b>Rappresentante</b> degli studenti del
+										CDL
+									</li>
+								</ul>
+								<div style="margin-bottom: 100px;"></div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2017</span>
+							</div>
+							<div class="timeline-info"></div>
+						</div>
+					</div>
+				</span>
+
+				<span class="col-span-1">
+					<div class="stack gap-2 lg:gap-4 skills">
+						
+						<h2><Icon
+							icon="pin"
+							color="var(--accent-regular)"
+							style="display:inline-block; position: relative; bottom: 5px"
+							size="2.5rem"
+							gradient
+						/> Progetti</h2>
+						<p>
+							Non mi è mai piaciuto stare con le mani in mano e questi sono alcuni dei progetti degni di merito che ho realizzato in questi anni di studio e lavoro.
+						</p>
+					</div>
+
+					<div class="timeline">
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2023</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+								<h3><span>SEOgull</span><br /></h3>
+								<div>
+									<p>
+										Software di analisi di siti web per la
+										realizzazione di <b>audit SEO</b>.<br />
+										<ul>
+											<li class="list-item">
+												• <b>SEO Tecnica</b> (Core Web
+												Vitals, robots.txt, ecc)
+											</li>
+											<li class="list-item">
+												• <b>SEO Semantica</b> (keywords,
+												immagini, ecc)
+											</li>
+										</ul>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2022</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+
+								<h3><span>IMPACT x UNI</span><br /></h3>
+								<div>
+									<p>
+										<b>2° Classificato in Italia</b> per il progetto
+										Make22 di Learnn. (<a
+											href="/assets/make22_davide-morri.png"
+											target="_blank"><b>Attestato</b></a
+										>)<br />
+										<ul>
+											<li class="list-item">
+												• Pianificazione di una
+												strategia di Marketing con <b
+													>13 conversioni</b
+												> come risultato
+											</li>
+										</ul>
+									</p>
+								</div>
+								<br /><br />
+								<h3><span>Bot Telegram</span><br /></h3>
+								<div>
+									<p>
+										Bot per <b>automatizzare</b> le prenotazione
+										per la palestra del Collegio Universitario
+										R. Einaudi. <br />
+										<ul>
+											<li class="list-item">
+												• 400+ utilizzi
+											</li>
+										</ul>
+									</p>
+								</div>
+								<br /><br />
+								<h3>
+									<span>Libro Fotografico</span><br />
+								</h3>
+								<div>
+									<p>
+										Autoproduzione di un libro di fotografie
+										chiamato "<b>39 Scatti</b>".<br />
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2021</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 50px;"></div>
+								<h3><br /></h3>
+								<p></p>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2020</span>
+							</div>
+							<div class="timeline-info">
+								<div style="margin-bottom: 100px;"></div>
+
+								<h3>
+									<span
+										>Associazione studentesca Agorà Urbino</span
+									><br />
+								</h3>
+								<div>
+									<p>
+										<b>Coordinatore</b> di un'associazione studentesca
+										di rappresentanza ed organizzazione eventi.
+										<br />
+										<ul>
+											<li class="list-item">
+												• <a
+													rel="nofollow"
+													href="https://www.facebook.com/ilparcoArtBiotico/?locale=it_IT"
+													target="_blank"
+													>Il Parco ARTbiotico</a
+												> 6°- 7° edizione
+											</li>
+											<li class="list-item">
+												• <a
+													rel="nofollow"
+													href="https://www.facebook.com/recollege1?locale=it_IT"
+													target="_blank"
+													>Re-College</a
+												>
+											</li>
+											<li>• Eventi minori</li>
+										</ul>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-wrapper">
+							<div class="timeline-yr">
+								<span>2018</span>
+							</div>
+							<div class="timeline-info"></div>
+						</div>
+					</div>
+				</span>
+			</div>
+		</section>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+
+
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+		
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	/* TRANSIZIONI ANIMATE */
+	.transizione {
+		opacity: 0;
+		filter: blur(5px);
+		transform: translateX(-100%);
+		transition: all 2s;
+	}
+	.show {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateX(0);
+	}
+
+	/* FINE TRANSIZIONI */
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+
+</style>
+
+<script src="../components/transition.js"></script>

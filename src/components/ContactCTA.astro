@@ -1,0 +1,68 @@
+---
+import CallToAction from "./CallToAction.astro";
+import Icon from "./Icon.astro";
+---
+
+<aside>
+	<h2 class="transizione text-3xl">
+		Vuoi collaborare con me oppure chiedermi qualche informazione?
+	</h2>
+	<CallToAction href="mailto:davidemorri22@gmail.com">
+		Inviami un messaggio
+		<Icon icon="paper-plane-tilt" size="1.2em" />
+	</CallToAction>
+</aside>
+
+<style>
+	body {
+		color: white;
+	}
+	/* TRANSIZIONI ANIMATE */
+	.transizione {
+		opacity: 0;
+		filter: blur(5px);
+		transform: translateX(-100%);
+		transition: all 1.5s;
+	}
+	.show {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateX(0);
+	}
+
+	/* FINE TRANSIZIONI */
+
+	aside {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
+		border-top: 1px solid var(--gray-800);
+		border-bottom: 1px solid var(--gray-800);
+		padding: 5rem 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	h2 {
+		font-size: var(--text-xl);
+		text-align: center;
+		max-width: 15ch;
+	}
+
+	@media (min-width: 50em) {
+		aside {
+			padding: 7.5rem;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		h2 {
+			font-size: var(--text-3xl);
+			text-align: left;
+		}
+	}
+</style>
+
+<script src="../components/transition.js"></script>

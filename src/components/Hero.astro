@@ -1,0 +1,177 @@
+---
+import { Image } from "@astrojs/image/components";
+import down_finger from "../../public/assets/down-finger-white.png"
+
+interface Props {
+	title?: string;
+	tagline?: string;
+	align?: 'start' | 'center';
+  emoji?: string;
+}
+
+const { align = 'center', tagline, title,emoji } = Astro.props;
+const html = '<h1 class="title">Ciao! Io sono<br><span class="typewriter thick"></span></h1>';
+---
+
+<header class:list={['hero stack', align]}>
+	<div class="stack gap-2">
+
+		{title ? <h1 class="title" aria-label={title}>{title}</h1> : <div id="empty"><b><h1 class="title">Ciao! Io sono<br><span class="typewriter thick"></span></h1></b></div>}
+
+		{tagline && <p class="tagline">{tagline} 
+      {emoji && <Image
+          src={down_finger}
+					alt="Emoji del dito che punta verso il basso"
+					quality={100}
+					format="webp"
+          style="display: inline-block; width: 40px;"
+				/>}
+      </p>}
+	</div>				
+	<slot />
+</header>
+
+<style>
+
+/* Typewriter effect 1 */
+ @keyframes typing {
+  // 0%, 27% { content: ""; }
+  // 1%, 26% { content: "D"; }
+  // 2%, 25% { content: "Da"; }
+  // 3%, 23% { content: "Dav"; }
+  // 4%, 22% { content: "Davi"; }
+  // 5%, 21% { content: "David"; }
+  // 6%, 20% { content: "Davide"; }
+  // 7%, 19% { content: "Davide "; }
+  // 8%, 18% { content: "Davide M"; }
+  // 9%, 17% { content: "Davide Mo"; }
+  // 10%, 16% { content: "Davide Mor"; }
+  // 11%, 15% { content: "Davide Morr"; }
+  // 12%, 14% { content: "Davide Morri"; } 
+  0% { content: ""; }
+  1% { content: "D"; }
+  2% { content: "Da"; }
+  3% { content: "Dav"; }
+  4% { content: "Davi"; }
+  5% { content: "David"; }
+  6% { content: "Davide"; }
+  7% { content: "Davide "; }
+  8% { content: "Davide M"; }
+  9% { content: "Davide Mo"; }
+  10% { content: "Davide Mor"; }
+  11% { content: "Davide Morr"; }
+  12% { content: "Davide Morri"; }
+  100% { content: "Davide Morri "; }  
+
+
+ 
+
+  // 30%, 58% { content: ""; }
+  // 31%, 57% { content: "p"; }
+  // 32%, 56% { content: "pr"; }
+  // 33%, 55% { content: "pro"; }
+  // 34%, 54% { content: "prog"; }
+  // 35%, 53% { content: "progr"; }
+  // 36%, 52% { content: "progra"; }
+  // 37%, 51% { content: "program"; }
+  // 38%, 50% { content: "programm"; }
+  // 39%, 49% { content: "programma"; }
+  // 40%, 48% { content: "programmat"; }
+  // 41%, 47% { content: "programmato"; }
+  // 42%, 46% { content: "programmator"; }
+  // 43%, 45% { content: "programmatore"; }
+
+
+  // 61%, 79% { content: ""; }
+  // 62%, 78% { content: "m"; }
+  // 63%, 77% { content: "ma"; }
+  // 64%, 76% { content: "mar"; }
+  // 65%, 75% { content: "mark"; }
+  // 66%, 74% { content: "marke"; }
+  // 67%, 73% { content: "market"; }
+  // 68%, 72% { content: "markete"; }
+  // 69%, 71% { content: "marketer"; }
+
+
+  // 82%, 102% { content: ""; }
+  // 83%, 101% { content: "f"; }
+  // 84%, 100% { content: "fo"; }
+  // 85%, 99% { content: "fot"; }
+  // 86%, 98% { content: "foto"; }
+  // 87%, 97% { content: "fotog"; }
+  // 88%, 96% { content: "fotogr"; }
+  // 89%, 95% { content: "fotogra"; }
+  // 90%, 94% { content: "fotograf"; }
+  // 91%, 93% { content: "fotografo"; } 
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter {
+  --caret: currentcolor;
+}
+
+.typewriter::before {
+  content: "";
+  animation: typing 13.5s forwards;
+}
+
+.typewriter::after {
+  content: "";
+  border-right: 1px solid var(--caret);
+  animation: blink 0.7s linear infinite;
+}
+
+.typewriter.thick::after {
+  border-right: 1ch solid var(--caret);
+}
+
+.typewriter.nocaret::after {
+  border-right: 0;
+}
+
+
+
+/**/
+
+
+	.hero {
+		font-size: var(--text-lg);
+		text-align: center;
+	}
+
+	.title,
+	.tagline {
+		max-width: 37ch;
+		margin-inline: auto;
+    color: var(--gray-100);
+
+	}
+
+	.title {
+		font-size: var(--text-3xl);
+		color: var(--gray-0);
+	}
+
+	@media (min-width: 50em) {
+		.hero {
+			font-size: var(--text-xl);
+		}
+
+		.start {
+			text-align: start;
+		}
+
+		.start .title,
+		.start .tagline {
+			margin-inline: unset;
+		}
+
+		.title {
+			font-size: var(--text-5xl);
+		}
+	}
+</style>
